@@ -35,7 +35,9 @@ jobs:
 
       - name: Deploy to Server
         run: |
-          ssh -o StrictHostKeyChecking=no DELL@10.3.101.141 <<EOF
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
+          chmod 600 private_key.pem
+          ssh -i private_key.pem -T -o StrictHostKeyChecking=no DellUser@192.168.1.100 << 'EOF'
           docker pull mbouthaim/my-app:latest
           docker stop my-app || true
           docker rm my-app || true
