@@ -35,7 +35,7 @@ jobs:
 
       - name: Deploy to Server
         run: |
-          ssh -o StrictHostKeyChecking=no user@your-server-ip <<EOF
+          ssh -o StrictHostKeyChecking=no DELL@10.3.101.141 <<EOF
           docker pull mbouthaim/my-app:latest
           docker stop my-app || true
           docker rm my-app || true
