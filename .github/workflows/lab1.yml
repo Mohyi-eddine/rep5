@@ -1,0 +1,9 @@
+name : player information
+
+on:
+  workflow-dispach:
+
+jobs:
+  build:
+    runs-on:
+
